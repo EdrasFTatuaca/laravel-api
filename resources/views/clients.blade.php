@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clientes - CRUD simple</title>
+  <title>MI CRUD DE CLIENTES</title>
   <style>
     body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; }
     h1 { margin-bottom: 8px; }
@@ -24,24 +24,24 @@
 </head>
 <body>
   <h1>Clientes</h1>
-  <p class="muted">Frontend mínimo para probar la API <code>/api/clients</code>.</p>
+  <p class="muted">CRUD DE CLIENTES <code>/api/clients</code>.</p>
 
   <div class="grid">
     <div class="card">
-      <h3>Crear / Actualizar</h3>
+      <h3>CREAR O ACTUALIZAR CLIENTE</h3>
       <form id="client-form">
         <input type="hidden" id="client-id" />
         <label for="name">Nombre</label>
         <input id="name" placeholder="Nombre" required />
 
-        <label for="email">Email</label>
-        <input id="email" type="email" placeholder="email@demo.com" required />
+        <label for="email">Correo electrónico</label>
+        <input id="email" type="email" placeholder="edras@gmail.com" required />
 
         <label for="phone">Teléfono</label>
-        <input id="phone" placeholder="Opcional" />
+        <input id="phone" placeholder="Número de teléfono" />
 
         <label for="address">Dirección</label>
-        <input id="address" placeholder="Opcional" />
+        <input id="address" placeholder="Dirección" />
 
         <button type="submit">Guardar</button>
         <button type="button" id="reset-btn">Limpiar</button>
@@ -50,13 +50,13 @@
     </div>
 
     <div class="card" style="overflow:auto">
-      <h3>Listado</h3>
+      <h3>LISTADO DE CLIENTES</h3>
       <table>
         <thead>
           <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Email</th>
+            <th>Correo electrónico</th>
             <th>Teléfono</th>
             <th>Dirección</th>
             <th>Acciones</th>
@@ -69,7 +69,7 @@
   </div>
 
   <script>
-    const api = '/api/clients'; // mismo dominio (nginx) -> Laravel API
+    const api = '/api/clients'; 
     let currentListUrl = api;
 
     const q = (s) => document.querySelector(s);
@@ -116,7 +116,7 @@
         q('#email').value = c.email || '';
         q('#phone').value = c.phone || '';
         q('#address').value = c.address || '';
-        formMsg.innerHTML = '<span class="muted">Editando cliente #' + c.id + '</span>';
+        formMsg.innerHTML = '<span class="muted">EDITANDO EL CLIENTE #' + c.id + '</span>';
       } catch (e) {
         formMsg.innerHTML = `<span class="error">${e.message}</span>`;
       }
@@ -181,7 +181,6 @@
       formMsg.textContent = '';
     });
 
-    // Cargar inicial
     fetchClients();
   </script>
 </body>
